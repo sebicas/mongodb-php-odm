@@ -523,6 +523,7 @@ abstract class Mongo_Document {
             {
                 // Ubicacion alredy on DB
                 $this->_related_objects[$name]->set($foreign_field, $this->id);
+                echo "setting " . $foreign_field . " = " . $this->id;
             }
 
           return $this->_related_objects[$name];
