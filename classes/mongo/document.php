@@ -536,13 +536,6 @@ abstract class Mongo_Document {
             $value = $value['$id'];
           }
           $this->_related_objects[$name] = Mongo_Document::factory($model, $value);
-
-          // If related object don't exist assign parent id to new object
-          if( ! $this->_related_objects[$name]->loaded())
-          {
-            // Ubicacion alredy on DB
-            $this->_related_objects[$name]->set($id_field, $value);
-          }
         }
       }
       return $this->_related_objects[$name];
