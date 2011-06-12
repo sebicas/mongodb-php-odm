@@ -543,7 +543,6 @@ abstract class Mongo_Document {
             // Ubicacion alredy on DB
             $this->_related_objects[$name]->set($id_field, $value);
           }
-
         }
       }
       return $this->_related_objects[$name];
