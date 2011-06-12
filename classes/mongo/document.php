@@ -517,6 +517,14 @@ abstract class Mongo_Document {
           $this->_related_objects[$name] = Mongo_Document::factory($model)
             ->collection(TRUE)
             ->find($foreign_field, $this->id);
+
+            // Check is Ubicacion already Exist
+            if( ! $this->_related_objects[$name]->loaded())
+            {
+                // Ubicacion alredy on DB
+                $this->_related_objects[$name]->set($foreign_field, $this->id);
+            }
+
           return $this->_related_objects[$name];
         }
         $id_field = isset($this->_references[$name]['field']) ? $this->_references[$name]['field'] : "_$name";
