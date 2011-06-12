@@ -537,12 +537,11 @@ abstract class Mongo_Document {
           }
           $this->_related_objects[$name] = Mongo_Document::factory($model, $value);
 
-          // If not Object was Loaded assign related object ID
+          // If related object don't exist assign parent id to new object
           if( ! $this->_related_objects[$name]->loaded())
           {
             // Ubicacion alredy on DB
             $this->_related_objects[$name]->set($id_field, $value);
-            echo "Setting " . $id_field . " = '" . $value . "'\n";
           }
 
         }
